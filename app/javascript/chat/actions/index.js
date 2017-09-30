@@ -13,6 +13,8 @@ export function fetchMessages(channel) {
 export function createMessage(channel, content) {
   const url = `${BASE_URL}/${channel}/messages`;
   const body = { content }; // ES6 destructuring
+  // To avoid back-end 500 with ActionController::InvalidAuthenticityToken, need to give token
+  // Also these line : 'X-CSRF-Token': csrfToken & credentials: 'same-origin',
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
   const promise = fetch(url, {
     method: 'POST',
