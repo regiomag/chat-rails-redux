@@ -20,7 +20,7 @@ const Message = (props) => {
     <div className="message-container">
       <i className="author">
         <span style={{ color }}>{props.email}</span>
-        <small>{time}</small>
+        <small>{props.author}</small>
       </i>
       <p >{content}</p>
     </div>
